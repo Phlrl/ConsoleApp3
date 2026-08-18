@@ -11,7 +11,30 @@ namespace ConsoleApp3
 
         static void Game()
         {
-            List<string> Player = new List<string> { "Player1", "Player2" };
+
+            Console.WriteLine("Name Players");
+
+
+
+            string Player1;
+            string Player2;
+
+
+            List<string> Player = new List<string> { "Jonas", "Mia", "Leon", "Sophie", "Felix", "Clara", "Elias", "Hannah", "Lukas", "Emma" };
+
+            Random r = new Random();
+            int rInt = r.Next(0, 9);
+
+            Player1 = Player[rInt];
+
+            rInt = r.Next(0, 9);
+
+            Player2 = Player[rInt];
+
+            Console.WriteLine("Player 1:");
+            Console.WriteLine(Player1);
+            Console.WriteLine("Player 2:");
+            Console.WriteLine(Player2);
 
             int[] array1 = [5, 4, 3, 2, 1];
 
