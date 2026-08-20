@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.Design;
+using System.Linq.Expressions;
 
 namespace ConsoleApp3
 {
@@ -12,13 +14,11 @@ namespace ConsoleApp3
         static void Game()
         {
 
-            Console.WriteLine("Name Players");
-
-
+            Console.WriteLine("Player Names:");
+            Console.WriteLine("");
 
             string Player1;
             string Player2;
-
 
             List<string> Player = new List<string> { "Jonas", "Mia", "Leon", "Sophie", "Felix", "Clara", "Elias", "Hannah", "Lukas", "Emma" };
 
@@ -31,19 +31,34 @@ namespace ConsoleApp3
 
             Player2 = Player[rInt];
 
-            Console.WriteLine("Player 1:");
+            int pass;
+
+            List<int> code = new List<int> { 58321, 91467, 26053, 74819, 13582, 69240, 82756, 40193, 57608, 31974 };
+
+            Random n = new Random();
+            int nInt = n.Next(0, 10);
+
+            pass = code[nInt];
+
+
+            Console.Write("Player 1:    ");
             Console.WriteLine(Player1);
-            Console.WriteLine("Player 2:");
+            Console.Write("Player 2:    ");
             Console.WriteLine(Player2);
+            Console.WriteLine("");
+            Console.Write("Bomb Code:   ");
+            Console.WriteLine(pass);
+            Console.WriteLine("");
 
             string auswahl = "";
 
             while (auswahl != "1")
-            {
-                Console.WriteLine("1 = Place Bomb");
-                Console.WriteLine("2= Wait");
 
+            {
                 Console.WriteLine("Auswahl:");
+                Console.WriteLine("");
+                Console.WriteLine("1 = Place Bomb");
+                Console.WriteLine("2 = Wait");
 
                 auswahl = Console.ReadLine();
 
@@ -52,9 +67,28 @@ namespace ConsoleApp3
                     case "1":
                         if (auswahl == "1")
                         {
-                            Console.WriteLine("Placed Bomb");
+                            int input = 0;
+                            bool is_first_try = true;
+
+                            while (input != pass)
+                            {
+                                if (is_first_try)
+                                {
+                                    Console.WriteLine("Code eingeben: ");
+                                    is_first_try = false;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Code erneut eingeben: ");
+
+                                }
+                                input = Convert.ToInt32(Console.ReadLine());
+                                    
+                            }
+                            Console.WriteLine("Bomb Placed");
                         }
-                        break;
+                    break;
+
                     case "2":
                         if (auswahl == "2")
                         {
@@ -102,4 +136,5 @@ namespace ConsoleApp3
             }
         }
     }
+
 }
