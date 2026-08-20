@@ -36,6 +36,40 @@ namespace ConsoleApp3
             Console.WriteLine("Player 2:");
             Console.WriteLine(Player2);
 
+            string auswahl = "";
+
+            while (auswahl != "1")
+            {
+                Console.WriteLine("1 = Place Bomb");
+                Console.WriteLine("2= Wait");
+
+                Console.WriteLine("Auswahl:");
+
+                auswahl = Console.ReadLine();
+
+                switch (auswahl)
+                {
+                    case "1":
+                        if (auswahl == "1")
+                        {
+                            Console.WriteLine("Placed Bomb");
+                        }
+                        break;
+                    case "2":
+                        if (auswahl == "2")
+                        {
+                            Console.WriteLine("es wird gewartet");
+
+                        }
+                        break;
+
+                    default:
+                        Console.WriteLine("Ungueltige Auswahl");
+                        break;
+                }
+            }
+
+
             int[] array1 = [5, 4, 3, 2, 1];
 
             Console.WriteLine("Countdown:");
