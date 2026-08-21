@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Design;
+using System.Diagnostics.Metrics;
 using System.Linq.Expressions;
 
 namespace ConsoleApp3
@@ -70,6 +71,8 @@ namespace ConsoleApp3
                             int input = 0;
                             bool is_first_try = true;
 
+                            int counter = 1;
+
                             while (input != pass)
                             {
                                 if (is_first_try)
@@ -79,8 +82,23 @@ namespace ConsoleApp3
                                 }
                                 else
                                 {
+                                    counter++;
+                                    Console.Write("Versuche:    ");
+                                    Console.WriteLine(counter);
                                     Console.WriteLine("Code erneut eingeben: ");
 
+                                    if (counter > 2)
+                                    {
+                                        Console.WriteLine("");
+                                        Console.WriteLine();
+                                        Console.WriteLine("+----------------------------------+");
+                                        Console.WriteLine("|         ZU VIELE VERSUCHE        |");
+                                        Console.WriteLine("|          ZUGRIFF GESPERRT        |");
+                                        Console.WriteLine("+----------------------------------+");
+                                        Console.WriteLine();
+                                        Thread.Sleep(1000);
+                                        Environment.Exit(0);
+                                    }
                                 }
                                 input = Convert.ToInt32(Console.ReadLine());
                                     
@@ -125,6 +143,7 @@ namespace ConsoleApp3
                 Console.WriteLine(player);
             }
         }
+
 
         static void Bomb_Check(List<string> Player)
         {
