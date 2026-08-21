@@ -102,7 +102,16 @@ namespace ConsoleApp3
                                         Console.WriteLine("|          ZUGRIFF GESPERRT        |");
                                         Console.WriteLine("+----------------------------------+");
                                         Console.WriteLine();
-                                        Thread.Sleep(1000);
+
+                                        int[] array2 = [3, 2, 1];
+
+                                        Console.WriteLine("Shutdown:    ");
+
+                                        foreach (int value in array2)
+                                        {
+                                            Console.WriteLine(value);
+                                            Thread.Sleep(1000);
+                                        }
                                         Environment.Exit(0);
                                     }
                                 }
