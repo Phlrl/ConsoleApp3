@@ -71,12 +71,18 @@ namespace ConsoleApp3
                             int input = 0;
                             bool is_first_try = true;
 
-                            int counter = 1;
+                            int counter = 0;
 
                             while (input != pass)
                             {
                                 if (is_first_try)
                                 {
+                                    Console.WriteLine();
+                                    Console.WriteLine("+---------------------------+");
+                                    Console.WriteLine("|       WARNING             |");
+                                    Console.WriteLine("|   MAX. 3 VERSUCHE!        |");
+                                    Console.WriteLine("+---------------------------+");
+                                    Console.WriteLine();
                                     Console.WriteLine("Code eingeben: ");
                                     is_first_try = false;
                                 }
@@ -87,7 +93,7 @@ namespace ConsoleApp3
                                     Console.WriteLine(counter);
                                     Console.WriteLine("Code erneut eingeben: ");
 
-                                    if (counter > 2)
+                                    if (counter > 3)
                                     {
                                         Console.WriteLine("");
                                         Console.WriteLine();
@@ -132,7 +138,14 @@ namespace ConsoleApp3
                 Thread.Sleep(1000);
             }
 
-            Console.WriteLine("bomb");
+            Console.WriteLine();
+            Console.WriteLine("+====================================+");
+            Console.WriteLine("|            BOMB EXPLODED           |");
+            Console.WriteLine("|              GAME OVER             |");
+            Console.WriteLine("+====================================+");
+            Console.WriteLine();
+            Thread.Sleep(1000);
+            Environment.Exit(0);
 
             Bomb_Check(Player);
 
