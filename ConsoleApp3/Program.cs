@@ -78,10 +78,7 @@ namespace ConsoleApp3
                                 if (is_first_try)
                                 {
                                     Console.WriteLine();
-                                    Console.WriteLine("+---------------------------+");
-                                    Console.WriteLine("|       WARNING             |");
-                                    Console.WriteLine("|   MAX. 3 VERSUCHE!        |");
-                                    Console.WriteLine("+---------------------------+");
+                                    DisplayMaxTriesWarning();
                                     Console.WriteLine();
                                     Console.WriteLine("Code eingeben: ");
                                     is_first_try = false;
@@ -97,10 +94,7 @@ namespace ConsoleApp3
                                     {
                                         Console.WriteLine("");
                                         Console.WriteLine();
-                                        Console.WriteLine("+----------------------------------+");
-                                        Console.WriteLine("|         ZU VIELE VERSUCHE        |");
-                                        Console.WriteLine("|          ZUGRIFF GESPERRT        |");
-                                        Console.WriteLine("+----------------------------------+");
+                                        DisplayTooManyTries();
                                         Console.WriteLine();
 
                                         int[] array2 = [3, 2, 1];
@@ -164,6 +158,22 @@ namespace ConsoleApp3
             {
                 Console.WriteLine(player);
             }
+        }
+
+        private static void DisplayMaxTriesWarning()
+        {
+            Console.WriteLine("+---------------------------+");
+            Console.WriteLine("|       WARNING             |");
+            Console.WriteLine("|   MAX. 3 VERSUCHE!        |");
+            Console.WriteLine("+---------------------------+");
+        }
+
+        private static void DisplayTooManyTries()
+        {
+            Console.WriteLine("+----------------------------------+");
+            Console.WriteLine("|         ZU VIELE VERSUCHE        |");
+            Console.WriteLine("|          ZUGRIFF GESPERRT        |");
+            Console.WriteLine("+----------------------------------+");
         }
 
 
