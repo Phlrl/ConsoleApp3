@@ -2,6 +2,7 @@
 using System.ComponentModel.Design;
 using System.Diagnostics.Metrics;
 using System.Linq.Expressions;
+using System.Security.Cryptography;
 
 namespace ConsoleApp3
 {
@@ -34,13 +35,9 @@ namespace ConsoleApp3
 
             Player2 = Player[rInt];
 
-            int pass;
+            Random rng = new Random();
 
-            List<int> code = new List<int> { 58321, 91467, 26053, 74819, 13582, 69240, 82756, 40193, 57608, 31974 };
-
-            int nInt = r.Next(0, 10);
-
-            pass = code[nInt];
+            int zufallsZahl = rng.Next(10000, 99999);
 
 
             Console.Write("Player 1:    ");
@@ -49,7 +46,7 @@ namespace ConsoleApp3
             Console.WriteLine(Player2);
             Console.WriteLine("");
             Console.Write("Bomb Code:   ");
-            Console.WriteLine(pass);
+            Console.WriteLine(zufallsZahl);
             Console.WriteLine("");
 
             string auswahl = "";
@@ -74,7 +71,7 @@ namespace ConsoleApp3
 
                             int counter = 0;
 
-                            while (input != pass)
+                            while (input != zufallsZahl)
                             {
                                 if (is_first_try)
                                 {
