@@ -8,16 +8,18 @@ namespace ConsoleApp3
 {
     internal class Program
     {
-
         private static Random r = new Random();
         
+        static event Action Impuls;
+
         static void Main(string[] args)
         {
             Game();
+
+            Impuls += Bomb_Check;
         }
 
 
-        static event Action Impuls;
         static void Game()
         {
 
@@ -128,7 +130,6 @@ namespace ConsoleApp3
                         if (auswahl == "2")
                         {
                             Console.WriteLine("es wird gewartet");
-
                         }
                         break;
 
@@ -149,6 +150,7 @@ namespace ConsoleApp3
                 Thread.Sleep(1000);
             }
 
+            Impuls?.Invoke();
             Console.WriteLine();
             Console.WriteLine("+====================================+");
             Console.WriteLine("|            BOMB EXPLODED           |");
@@ -184,7 +186,7 @@ namespace ConsoleApp3
             Console.WriteLine("+----------------------------------+");
         }
 
-        private static void Bomb_Check(List<string> Player)
+         static void Bomb_Check(List<string> Player)
         {
             string input = Console.ReadLine();
 
