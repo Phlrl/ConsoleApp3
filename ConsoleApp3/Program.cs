@@ -8,6 +8,9 @@ namespace ConsoleApp3
 {
     internal class Program
     {
+
+        private static Random r = new Random();
+        
         static void Main(string[] args)
         {
             Game();
@@ -24,13 +27,13 @@ namespace ConsoleApp3
 
             List<string> Player = new List<string> { "Alexander", "Maximilian", "Leon", "Elias", "Noah", "Felix", "Jonas", "Luca", "Paul", "Ben", "Finn", "Moritz", "Emil", "Louis", "Theo", "David", "Julian", "Tim", "Nico", "Tom", "Jan", "Lukas", "Simon", "Erik", "Adrian", "Matteo", "Daniel", "Philipp", "Jakob", "Samuel", "Henry", "Anton", "Vincent", "Oskar", "Jonathan", "Max", "Florian", "Robin", "Marcel", "Tobias", "Clara", "Emma", "Mia", "Sophia", "Hannah", "Lina", "Laura", "Emilia", "Anna", "Marie" };
 
-            Random r = new Random();
+            int rInt = r.Next(0, 9);
 
             string[] players = new string[10];
 
             for (int i = 0; i< 10; i++)
             {
-                int rInt = r.Next(0, Player.Count);
+                rInt = r.Next(0, Player.Count);
 
                 players[i] = Player[rInt];
 
