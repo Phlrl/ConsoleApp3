@@ -13,35 +13,44 @@ namespace ConsoleApp3
             Game();
         }
 
+
+        static event Action Impuls;
         static void Game()
         {
 
             Console.WriteLine("Player Names:");
             Console.WriteLine("");
 
-            string Player1;
-            string Player2;
 
-            List<string> Player = new List<string> { "Jonas", "Mia", "Leon", "Sophie", "Felix", "Clara", "Elias", "Hannah", "Lukas", "Emma" };
+            List<string> Player = new List<string> { "Alexander", "Maximilian", "Leon", "Elias", "Noah", "Felix", "Jonas", "Luca", "Paul", "Ben", "Finn", "Moritz", "Emil", "Louis", "Theo", "David", "Julian", "Tim", "Nico", "Tom", "Jan", "Lukas", "Simon", "Erik", "Adrian", "Matteo", "Daniel", "Philipp", "Jakob", "Samuel", "Henry", "Anton", "Vincent", "Oskar", "Jonathan", "Max", "Florian", "Robin", "Marcel", "Tobias", "Clara", "Emma", "Mia", "Sophia", "Hannah", "Lina", "Laura", "Emilia", "Anna", "Marie" };
 
             Random r = new Random();
-            int rInt = r.Next(0, 9);
 
-            Player1 = Player[rInt];
+            string[] players = new string[10];
 
-            rInt = r.Next(0, 9);
+            for (int i = 0; i< 10; i++)
+            {
+                int rInt = r.Next(0, Player.Count);
 
-            Player2 = Player[rInt];
+                players[i] = Player[rInt];
+
+                Player.RemoveAt(rInt);
+            }
 
             Random rng = new Random();
 
             int zufallsZahl = rng.Next(10000, 99999);
 
-
-            Console.Write("Player 1:    ");
-            Console.WriteLine(Player1);
-            Console.Write("Player 2:    ");
-            Console.WriteLine(Player2);
+            Console.WriteLine("Player 1:    " + players[0]);
+            Console.WriteLine("Player 2:    " + players[1]);
+            Console.WriteLine("Player 3:    " + players[2]);
+            Console.WriteLine("Player 4:    " + players[3]);
+            Console.WriteLine("Player 5:    " + players[4]);
+            Console.WriteLine("Player 6:    " + players[5]);
+            Console.WriteLine("Player 7:    " + players[6]);
+            Console.WriteLine("Player 8:    " + players[7]);
+            Console.WriteLine("Player 9:    " + players[8]);
+            Console.WriteLine("Player 10:   " + players[9]);
             Console.WriteLine("");
             Console.Write("Bomb Code:   ");
             Console.WriteLine(zufallsZahl);
@@ -172,12 +181,11 @@ namespace ConsoleApp3
             Console.WriteLine("+----------------------------------+");
         }
 
-
-        static void Bomb_Check(List<string> Player)
+        private static void Bomb_Check(List<string> Player)
         {
             string input = Console.ReadLine();
 
-            if (input == "bomb")
+            if (input == )
             {
                 Player.Clear();
             }
