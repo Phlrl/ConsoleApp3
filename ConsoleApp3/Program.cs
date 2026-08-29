@@ -8,6 +8,9 @@ namespace ConsoleApp3
 {
     internal class Program
     {
+
+        private static Random r = new Random();
+        
         static void Main(string[] args)
         {
             Game();
@@ -24,7 +27,6 @@ namespace ConsoleApp3
 
             List<string> Player = new List<string> { "Jonas", "Mia", "Leon", "Sophie", "Felix", "Clara", "Elias", "Hannah", "Lukas", "Emma" };
 
-            Random r = new Random();
             int rInt = r.Next(0, 9);
 
             Player1 = Player[rInt];
