@@ -10,13 +10,10 @@ namespace ConsoleApp3
     {
         private static Random r = new Random();
         
-        static event Action Impuls;
 
         static void Main(string[] args)
         {
             Game();
-
-            Impuls += Bomb_Check;
         }
 
 
@@ -150,24 +147,17 @@ namespace ConsoleApp3
                 Thread.Sleep(1000);
             }
 
-            Impuls?.Invoke();
             Console.WriteLine();
             Console.WriteLine("+====================================+");
             Console.WriteLine("|            BOMB EXPLODED           |");
             Console.WriteLine("|              GAME OVER             |");
             Console.WriteLine("+====================================+");
             Console.WriteLine();
-            Thread.Sleep(1000);
-            Environment.Exit(0);
+            //richtiger player als dead anzeigen 
+            PlayerDead(13, 2, "dead     ");
+            Thread.Sleep(30000);
 
-            Bomb_Check(Player);
 
-            Console.WriteLine("Spieler:");
-
-            foreach (string player in Player)
-            {
-                Console.WriteLine(player);
-            }
         }
 
         private static void DisplayMaxTriesWarning()
@@ -186,15 +176,11 @@ namespace ConsoleApp3
             Console.WriteLine("+----------------------------------+");
         }
 
-         static void Bomb_Check(List<string> Player)
-        {
-            string input = Console.ReadLine();
-
-            if (input == )
-            {
-                Player.Clear();
-            }
-        }
+         public static void PlayerDead(int column, int zeile, string neuerText)
+         {
+            Console.SetCursorPosition(column, zeile);
+            Console.WriteLine(neuerText);
+         }
     }
 
 }
