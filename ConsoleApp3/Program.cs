@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 
 namespace ConsoleApp3
 {
-    internal class Program
+    public class Program
     {
         private static Random r = new Random();
         
@@ -160,7 +160,7 @@ namespace ConsoleApp3
 
         }
 
-        private static void DisplayMaxTriesWarning()
+        public static void DisplayMaxTriesWarning()
         {
             Console.WriteLine("+---------------------------+");
             Console.WriteLine("|       WARNING             |");
