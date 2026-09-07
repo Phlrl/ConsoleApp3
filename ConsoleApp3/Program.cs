@@ -30,7 +30,7 @@ namespace ConsoleApp3
 
             string[] players = new string[10];
 
-            for (int i = 0; i< players.Length; i++)
+            for (int i = 0; i< players.Length; i++) //for schleife um rInt einem wert aus der liste Player zuzuweisen und dann mit players[i] wo der aktuelle wert von i die zeile der liste ist mit players[i] = Player[rInt]; zuzuweisen
             {
                 rInt = r.Next(0, Player.Count);
 
@@ -145,11 +145,11 @@ namespace ConsoleApp3
             Console.WriteLine("|              GAME OVER             |");
             Console.WriteLine("+====================================+");
             Console.WriteLine();
-            Console.Clear();
+            Console.Clear(); //komplette konsole plus die liste werden gecleart
 
             for (int i = 0; i < players.Length; i++)
             {
-                Console.WriteLine($"Player {i + 1}:   ".PadRight(13) + players[i] + " ist tot");
+                Console.WriteLine($"Player {i + 1}:   ".PadRight(13) + players[i] + " ist tot"); //hier werden die Spieler von vorher wieder zur liste hinzugefügt und der string "ist tod" wird hinzugefügt 
             }
 
             Thread.Sleep(30000);
